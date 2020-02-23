@@ -13,6 +13,7 @@ Verdrahtungsplan
 
 <img src="Elektronik.jpg" alt="drawing" width="200" />
 Elektronik  
+(Ich habe hier die 2 Kanal Relaisvariante gewählt, weil ich die noch vorrätig hatte.)
 
 ## Hardware ##
 Wir benötigen:
