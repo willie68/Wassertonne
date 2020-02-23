@@ -1,0 +1,66 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg548" viewBox="0 0 718.11 535.01" version="1.0">
+  <defs id="defs550">
+    <linearGradient id="linearGradient571" y2="3173.3" gradientUnits="userSpaceOnUse" y1="2984.5" gradientTransform="scale(4.0439 .24729)" x2="95.334" x1="94.537">
+      <stop id="stop569" stop-color="#008700" offset="0"/>
+      <stop id="stop570" stop-color="#fff" stop-opacity="0" offset="1"/>
+    </linearGradient>
+  </defs>
+  <g id="g573" transform="translate(-5.7994 -243.48)">
+    <path id="path558" d="m124.49 360.19c-4.98 123.39-9.96 246.77-4.98 370.16 13.83 3.59 478.32-0.28 509.58 3.32-3.59-134.18 11.07-254.24 6.64-380.12-91.29-29.32-182.58-58.65-273.88-87.97-79.12 31.54-158.24 63.08-237.36 94.61z" fill-rule="evenodd" transform="translate(0 -.000030518)" stroke="#000" stroke-width="5" fill="#ffffde"/>
+    <path id="path559" d="m165.99 421.61v111.21l180.92 1.66s3.32-116.19-1.66-114.53c-4.97 1.66-180.92 3.32-179.26 1.66z" fill-rule="evenodd" transform="matrix(1 0 0 1.3115 .82994 -139.96)" stroke="#000" stroke-width="4.3659" fill="#a33d1e"/>
+    <path id="path560" d="m177.61 439.87l3.32 76.35 142.75 1.66v-79.67l-146.07 1.66z" fill-rule="evenodd" transform="matrix(1 0 0 1.3115 .82994 -139.96)" stroke="#000" stroke-width="4.3659" fill="#ffdc65"/>
+    <path id="path561" d="m401.69 730.35c-5.81-59.76 1.66-167.65 0-253.97 35.13-2.48 136.66-9.12 142.75 0 5.81 82.72 2.49 167.93 0 250.65-47.58 1.1-95.17 2.21-142.75 3.32z" fill-rule="evenodd" stroke="#000" stroke-width="5" fill="#a33d1e"/>
+    <path id="path562" d="m131.13 692.17v23.24c18.26 0.55 36.52 3.59 54.78 1.66 3.04-2.77 1.1-12.18 1.66-18.26-20.48-4.71-37.63-4.43-56.44-6.64z" fill-rule="evenodd" stroke="#000" stroke-width="5" fill="#ff791e"/>
+    <path id="path563" d="m167.65 662.29c-0.55 7.75-1.94 15.49-1.66 23.24 21.58-1.11 41.49-0.55 64.73-3.32 4.71-6.36 1.11-14.39 1.66-21.58 0 0-51.45-2.49-64.73 1.66z" fill-rule="evenodd" stroke="#000" stroke-width="5" fill="#ff791e"/>
+    <path id="path564" d="m210.8 697.15c-0.55 6.64-1.1 13.28-1.66 19.92 23.24 0 44.82-3.32 69.72 0-2.77-8.86-5.53-17.71-8.3-26.56-19.92-0.28-39.84 4.43-59.76 6.64z" fill-rule="evenodd" stroke="#000" stroke-width="5" fill="#ff791e"/>
+    <path id="path565" d="m139.43 252.3c0.55 29.33-2.21 53.67 6.64 87.98 16.05-1.11 32.09-2.22 48.13-3.32v-87.98c-6.63-7.19-33.19 2.22-49.79 3.32h-4.98z" fill-rule="evenodd" transform="matrix(1.271 0 0 1 -34.489 -.000030518)" stroke="#000" stroke-width="5" fill="#4f567d"/>
+    <path id="path566" d="m504.6 572.66c-1.66 8.3-2.49 16.6 0 24.9 6.09-0.56 20.47 1.38 18.26-1.66 1.11-4.98 1.38-13.28-1.66-19.92-5.53-1.94-11.06-3.88-16.6-3.32z" fill-rule="evenodd" stroke="#000" stroke-width="5" fill="#ffc81e"/>
+    <path id="path557" d="m81.334 356.87c92.676-42.88 236.81-102.36 280.52-106.23 99.6 33.2 202.51 52.29 299.61 95.44 10.79 9.69-0.79 30.16-7.43 35.69-97.93-30.98-192.58-61-292.18-95.31-92.95 36.52-184.25 76.08-277.21 112.6-13.192-6.08-8.562-39.14-3.306-42.19z" fill-rule="evenodd" transform="matrix(1 0 0 1.0843 4.9484 -21.979)" stroke="#000" stroke-width="4.9701" fill="#f00"/>
+    <path id="path567" d="m9.9593 736.98c17.429-3.32 710.43-1.65 710.43-1.65-0.56 12.17 2.21 23.51-1.66 36.51-231 6.37-466.98 6.09-710.43 6.64 0.5527-13.83 1.106-27.66 1.6593-41.5z" fill="url(#linearGradient571)" fill-rule="evenodd"/>
+    <path id="path572" d="m8.2994 736.16c278.86-4.98 429.91-2.5 447.34-2.5 14.11 0 273.88 0.01 265.58 0.01" stroke="#000" stroke-width="5" fill="none"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>my house</dc:title>
+        <dc:date>2009-05-26T15:55:41</dc:date>
+        <dc:description>House by jmrivera. From OCAL 0.18 release.</dc:description>
+        <dc:source>http://openclipart.org/detail/26257/my-house-by-anonymous-26257</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>Anonymous</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>building</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>cottage</rdf:li>
+            <rdf:li>home</rdf:li>
+            <rdf:li>house</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>svg</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>
