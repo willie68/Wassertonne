@@ -40,6 +40,8 @@ Bei den ersten Versuchen hat sich schnell herausgestellt, dass, bedingt durch di
 ## Software ##
 
 Zunächst ein paar Besonderheiten in der Software. Das Programm ist als sog. Statemachine (Zustandsautomat) ausgeführt, s.a. [https://de.wikipedia.org/wiki/Endlicher_Automat](https://de.wikipedia.org/wiki/Endlicher_Automat "Zustandsautomat"). Das Programm kann somit nur definierte Zustände annehmen und es gibt definierte Übergänge von einem Zustand in den anderen. Leider hat sich im laufenden Betrieb herausgestellt, dass sich der Uno immer wieder mal "aufgehängt" hat. Das heißt, das Programm wurde nicht weiter verarbeitet. Deswegen habe ich dem Programm einen sog. Watchdog hinzugefügt. Dieser ist im ATMega als Hardware Timer integriert. Beim Starten wird dieser mit einer Zeitkonstante initialisiert, hier in unserem Fall mit 4s. Der Watchdog muss dann in regelmäßigen Abständen vom Programm zurückgesetzt werden. Passiert das nicht, wird automatisch ein Hardwarereset ausgelöst und der Controller startet neu. Seit dieser Implementierung arbeitet das System über Monate einwandfrei. 
+Den aktuellen Code gibt's auch bei github: [https://github.com/willie68/Wassertonne](https://github.com/willie68/Wassertonne)
+
 
     /*
        Diese kleine Programm dient dazu eine Wassertonne mit Vorfilteranlage zu  steuern.
