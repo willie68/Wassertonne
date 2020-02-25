@@ -1,4 +1,6 @@
 # Automatische Tonnenbefüllung #
+Wilfried Klaas  
+
 Der Winter ist fast vorbei und so langsam sollte man wieder seinen Garten "in Betrieb" nehmen. Dazu zählt natürlich auch die Bewässerung. Bei uns im Garten haben wir für die trockenen Tage einen 600l Ibic Container als Wassertonne bestehend aus. Zum Befüllen verwenden wir das Regenwasser von unserem Hausdach. Soweit so normal. Dieser Container ist nicht gerade hübsch, deswegen wurde er weit nach hinten im Garten hinter unsere Gartenhütte verbannt. Das Wasser vom Dach muss natürlich dann auch dorthin. Deswegen läuft eine 100mm KG Rohrleitung bis hinter die Hütte. Durch das Gefälle läuft das Wasser auch gut durch die Leitung, kommt am Fuße unseres Containers an und muss dann von dort in den Container gepumpt werden.  
 
 <img src="Haus_Tonne.png" alt="drawing" />
@@ -336,4 +338,6 @@ Den aktuellen Code gibt's auch bei github: [https://github.com/willie68/Wasserto
     }
 
 
-Viel Spass beim Nachbau.
+Viel Spass beim Nachbau. Ich hoffe der kleine Blog hat euch gefallen. 
+Bis zum nächsten Mal
+Wilfried Klaas
