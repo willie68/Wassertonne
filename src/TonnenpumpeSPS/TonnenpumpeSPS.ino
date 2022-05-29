@@ -16,13 +16,18 @@
    WKLA 16.06.2018
    - erste Version
 */
-#define debug
+//#define debug
 #define mydebug
 #include <debug.h>
+#include <ArduinoSPS.h>
+#define watchdog
+
+#ifdef watchdog
 #include <avr/wdt.h>
+#endif
 
 // Durchgangszeit einer Loop in msec
-#define LOOP_TIME 250
+#define LOOP_TIME 500
 
 // Zeiten definiert in Sekunden
 #ifdef mydebug
@@ -30,13 +35,13 @@
 #define FULL_TIME 5
 #define WAIT_TIME 1
 #define TEST_TIME 5
-#define MAX_AUTO_RESTART 60 * 4
+#define MAX_AUTO_RESTART 60 * 1
 #else
 #define PUMP_TIME 20
 #define FULL_TIME 60
 #define WAIT_TIME 1
 #define TEST_TIME 5
-#define MAX_AUTO_RESTART 60 * 60 * 4
+#define MAX_AUTO_RESTART 60 * 60 * 2
 #endif
 
 // Ausgabestatus
@@ -51,41 +56,45 @@ enum STATUS {
 
 // Der aktuelle Status des Automaten
 STATUS state;
+ArduinoSPS sps;
 
 // Definition der Ein/Ausgabe Pins
-const byte OUT_PULLUP = 11;
-const byte OUT_PUMP =  5;
-const byte LED_PUMP = 6;
-const byte LED_FULL = 7;
-const byte LED_STATE = 13;
+const byte OUT_PULLUP = PWM2;
+const byte OUT_PUMP =  PWM1;
+const byte LED_WAIT = Dout1;
+const byte LED_PUMP = Dout2;
+const byte LED_FULL = Dout3;
+const byte LED_STATE = Dout4;
 
-const byte SENS_BARREL_FULL = 8;
-const byte SENS_FILTER_FULL = 9;
+const byte SENS_BARREL_FULL = Din1;
+const byte SENS_FILTER_FULL = Din2;
 
 void setup() {
+  wdt_disable();
+  #ifdef watchdog
+  wdt_enable(WDTO_4S);
+  #endif
   initDebug();
 
-  pinMode(OUT_PULLUP , OUTPUT);
-  pinMode(OUT_PUMP , OUTPUT);
-  pinMode(LED_PUMP , OUTPUT);
-  pinMode(LED_FULL , OUTPUT);
-  pinMode(LED_STATE , OUTPUT);
-  pinMode(SENS_BARREL_FULL , INPUT_PULLUP);
-  pinMode(SENS_FILTER_FULL , INPUT_PULLUP);
+  pinMode(OUT_PUMP, OUTPUT);
+  pinMode(OUT_PULLUP, OUTPUT);
 
   digitalWrite(OUT_PULLUP, 1);
   digitalWrite(LED_STATE, 1);
-  
+
 #ifdef mydebug
   digitalWrite(OUT_PUMP, 1);
+  digitalWrite(LED_WAIT, 1);
   digitalWrite(LED_PUMP, 1);
   digitalWrite(LED_FULL, 1);
+  wdt_reset();
   delay (1000);
+  wdt_reset();
 #endif
   doPump(false);
   doFull(false);
   setState(WAIT);
-  wdt_enable(WDTO_4S);
+
 }
 
 // Zeit des nächsten Statuswechsel
@@ -119,15 +128,26 @@ void loop() {
   dbgOutLn();
   if (autoRestart > 0) {
     // wenn noch wartezeit übrig ist, dann den Watchdog triggern
+#ifdef watchdog
     wdt_reset();
+#endif
     // Led blinken
     digitalWrite(LED_STATE, !digitalRead(LED_STATE));
   } else {
     // Wartezeit verstrichen, Watchdog wird resetten
+#ifdef watchdog
     while (true) {
       // solange hektisch blinken bitte...
       digitalWrite(LED_STATE, !digitalRead(LED_STATE));
       delay(100);
+    }
+#endif
+  }
+  if (sps.SEL()) {
+    while (sps.SEL()) {
+      for (byte i = 1; i < 5; i++) {
+        sps.DOUT(i, sps.DIN(i));
+      }
     }
   }
   delay(LOOP_TIME);
@@ -164,8 +184,8 @@ void determineState() {
 }
 
 /*
- * neuen Status setzen und die entsprechende Wartezeit setzen
- */
+   neuen Status setzen und die entsprechende Wartezeit setzen
+*/
 void setState(STATUS newState) {
   state = newState;
   dbgOut(", cs:");
@@ -184,8 +204,8 @@ void setState(STATUS newState) {
 }
 
 /*
- * Dem Staus entsprechend die Ausgänge setzen
- */
+   Dem Staus entsprechend die Ausgänge setzen
+*/
 void setOutputs(OUTPUT_STATES outputstate) {
   dbgOut(",o:");
   switch (outputstate) {
@@ -193,16 +213,19 @@ void setOutputs(OUTPUT_STATES outputstate) {
       dbgOut("off");
       doFull(false);
       doPump(false);
+      doWait(true);
       break;
     case BARREL_FULL:
       dbgOut("bf");
       doFull(true);
       doPump(false);
+      doWait(false);
       break;
     case PUMP_ON:
       dbgOut("pmp");
       doPump(true);
       doFull(false);
+      doWait(false);
       break;
     default:
       ;
@@ -210,8 +233,8 @@ void setOutputs(OUTPUT_STATES outputstate) {
 }
 
 /*
- * Wartezeit schon verstrichen?
- */
+   Wartezeit schon verstrichen?
+*/
 boolean checkWaitTime() {
   int actualTime = seconds();
   if (actualTime > nextTime) {
@@ -226,32 +249,39 @@ void setNextTime(byte secondsToWait) {
 }
 
 /*
- * Ist die Hauptwassertonne schon voll?
- */
+   Ist die Hauptwassertonne schon voll?
+*/
 boolean isBarrelFull() {
   return !digitalRead(SENS_BARREL_FULL);
 }
 
 /*
- * Ist der Vorfilter schon voll?
- */
+   Ist der Vorfilter schon voll?
+*/
 boolean isFilterFull() {
   return !digitalRead(SENS_FILTER_FULL);
 }
 
 /*
- * Pumpe ein/ausschalten
- */
+   Pumpe ein/ausschalten
+*/
 void doPump(boolean start) {
   digitalWrite(LED_PUMP, start);
   digitalWrite(OUT_PUMP, !start);
 }
 
 /*
- * Signal LED "Tonne voll" de/aktivieren
- */
+   Signal LED "Tonne voll" de/aktivieren
+*/
 void doFull(boolean full) {
   digitalWrite(LED_FULL, full);
+}
+
+/*
+   Signal LED "Tonne voll" de/aktivieren
+*/
+void doWait(boolean wait) {
+  digitalWrite(LED_WAIT, wait);
 }
 
 // ########## Hilfsfunktionen ###########
